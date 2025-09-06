@@ -109,7 +109,7 @@ class RadioTest {
 
         radio.increaseVolume();
 
-        assertEquals(0, radio.getSoundVolume());
+        assertEquals(100, radio.getSoundVolume());
 
     }
     @Test
@@ -130,7 +130,7 @@ class RadioTest {
 
         radio.turnDownVolume();
 
-        assertEquals(100, radio.getSoundVolume());
+        assertEquals(0, radio.getSoundVolume());
     }
     @Test
     void turnDownVolumeTestNotNull() {
@@ -155,6 +155,18 @@ class RadioTest {
         radio.changeStationUserSelf(6);
 
         assertEquals(6, radio.getCurrentRadioStationNumber());
+    }
+    @Test
+    void setNumberOfRadioStationsTestValid() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadioStationNumber(15);
+        assertEquals(15, radio.getCurrentRadioStationNumber());
+    }
+    @Test
+    void setNumberOfRadioStationsTestNull() {
+        Radio radio = new Radio();
+        radio.setCurrentRadioStationNumber(9);
+        assertEquals(9, radio.getCurrentRadioStationNumber());
     }
 
 }
